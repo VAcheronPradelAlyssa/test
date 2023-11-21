@@ -10,12 +10,12 @@ on:
   
 jobs:
   frontend-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     defaults:
       run:
         working-directory: front
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Use Node.js 16
         uses: actions/setup-node@v3
@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - name: Run tests
-        run: npm run test --code-coverage
+        run: npm test --code-coverage
       
       - name: Upload coverage report
         uses: actions/upload-artifact@v3
