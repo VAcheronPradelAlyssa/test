@@ -22,9 +22,18 @@ jobs:
         with:
           node-version: 16
 
-      - name: Run tests
-        run: npm run test
-
-      - name: Code coverage
-        run: npm run test --code-coverage
+      - name: Run npm install 
+      - run: npm install
+      
+      - name: Run npm ci
         working-directory: front
+      - run: npm ci
+
+      - name: Run tests
+        run: npm test --code-coverage
+      
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: karma-report
+          path: front/coverage
