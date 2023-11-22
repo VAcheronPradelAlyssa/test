@@ -1,4 +1,4 @@
-name: Backend report tests coverage
+name: Backend tests
 
 on:
   push:
