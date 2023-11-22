@@ -32,6 +32,9 @@ jobs:
   Backend:
     name: Backend
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: back
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
