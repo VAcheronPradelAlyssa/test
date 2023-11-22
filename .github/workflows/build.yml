@@ -28,7 +28,7 @@ jobs:
       - name: Run npm install
         run: npm install
       - run: npm run test:prod
-       
+
   Backend:
     name: Backend
     runs-on: windows-latest
@@ -57,4 +57,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=project_10 -Dsonar.projectName='project_10'
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=project_10 -f back/pom.xml
