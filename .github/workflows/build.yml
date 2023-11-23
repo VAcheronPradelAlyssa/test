@@ -33,9 +33,9 @@ jobs:
   Backend:
     name: Backend
     runs-on: windows-latest
-    #defaults:
-    #  run:
-    #    working-directory: back
+    defaults:
+      run:
+        working-directory: back
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
@@ -62,6 +62,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-          cd back
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=project_10 -Dsonar.projectName='project_10' -Dsonar.login=${{secrets.SONAR_TOKEN}}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=project_10 -Dsonar.projectName='project_10' -Dsonar.login=${{secrets.SONAR_TOKEN}}
