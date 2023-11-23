@@ -10,7 +10,7 @@ on:
 jobs:
   Frontend:
     name: Frontend
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: front
@@ -32,7 +32,7 @@ jobs:
 
   Backend:
     name: Backend
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: back
