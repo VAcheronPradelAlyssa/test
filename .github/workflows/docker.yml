@@ -27,7 +27,7 @@ jobs:
           context: ./back
           file: ./back/Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/app-back:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/bobapp-back:latest
       
       - name: Build and push (Front)
         uses: docker/build-push-action@v5
@@ -35,4 +35,4 @@ jobs:
           context: ./front
           file: ./front/Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/app-front:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/bobapp-front:latest
