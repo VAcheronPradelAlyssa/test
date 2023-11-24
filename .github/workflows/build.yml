@@ -36,7 +36,6 @@ jobs:
     defaults:
       run:
         working-directory: back
-    permissions: read-all
     steps:
       - uses: actions/checkout@v2
         with:
