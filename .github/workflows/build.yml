@@ -36,6 +36,8 @@ jobs:
     defaults:
       run:
         working-directory: back
+    permissions:
+      checks: write
     steps:
       - uses: actions/checkout@v2
         with:
@@ -61,4 +63,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar 
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.token=sqp_7cdfc1f92cbb585baad64de61eebfd53dcc9945d -Dsonar.host.url=http://localhost:9000
