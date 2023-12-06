@@ -10,7 +10,7 @@ on:
   
 jobs:
   Frontend-test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     defaults:
       run:
