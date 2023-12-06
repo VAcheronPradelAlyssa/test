@@ -8,39 +8,6 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  Frontend:
-    name: Frontend
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: front
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      
-      - name: Use Node.js ${{matrix.node-version}}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{matrix.node-version}}
-      
-      - name: Run npm install
-        run: npm install
-      
-      - name: Run npm test
-        run: npm run test:prod
-      
-      - name: Build and analyse
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: front
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   Backend:
     name: Backend
@@ -72,5 +39,5 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName="project_10" -Dsonar.projectKey=rayanadir_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName="project_10" -Dsonar.projectKey=rayanadir_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD_1
