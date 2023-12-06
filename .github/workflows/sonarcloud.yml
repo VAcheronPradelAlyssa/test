@@ -22,13 +22,23 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      
       - name: Use Node.js ${{matrix.node-version}}
         uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
+      
       - name: Run npm install
         run: npm install
-      - run: npm run test:prod
+      
+      - name: Run npm test
+        run: npm run test:prod
+      
+      - name: Build and analyse
+        uses: SonarCource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   Backend:
     name: Backend
