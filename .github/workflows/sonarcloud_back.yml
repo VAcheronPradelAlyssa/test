@@ -1,4 +1,4 @@
-name: SonarCloud Back
+name: SonarCloud Back (Quality)
 
 on:
   push:

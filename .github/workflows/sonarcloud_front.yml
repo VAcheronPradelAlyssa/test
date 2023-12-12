@@ -1,4 +1,4 @@
-name: SonarCloud Front
+name: SonarCloud Front (Quality)
 
 on:
   push:

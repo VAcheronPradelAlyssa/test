@@ -1,4 +1,4 @@
-name: Frontend tests
+name: Frontend tests (Tests)
 
 on:
   push:
