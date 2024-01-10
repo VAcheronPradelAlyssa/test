@@ -54,4 +54,12 @@ Build the container:
 
 Start the container:
 
-> docker run -p 8080:8080 --name bobapp-back -d bobapp-back 
+> docker run -p 8080:8080 --name bobapp-back -d bobapp-back
+
+# Open explanatory document
+
+> Download `documents.zip`
+
+## Files
+
+> `document_explicatif.pdf`
