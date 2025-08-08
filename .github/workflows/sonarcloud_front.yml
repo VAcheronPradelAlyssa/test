@@ -46,6 +46,8 @@ jobs:
           find . -name "lcov.info" -type f || echo "No lcov.info found"
           echo "=== Show coverage structure ==="
           find coverage -type f 2>/dev/null || echo "Coverage directory not found"
+          echo "=== Show full tree ==="
+          tree coverage/ || ls -la coverage/
       
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
