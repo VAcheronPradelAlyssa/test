@@ -42,7 +42,10 @@ jobs:
         run: |
           echo "=== Coverage directory content ==="
           ls -la coverage/ || echo "No coverage directory"
+          echo "=== Find all lcov files ==="
           find . -name "lcov.info" -type f || echo "No lcov.info found"
+          echo "=== Show coverage structure ==="
+          find coverage -type f 2>/dev/null || echo "Coverage directory not found"
       
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
