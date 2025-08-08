@@ -36,10 +36,16 @@ jobs:
         run: npm ci
       
       - name: Run tests with coverage
-        run: npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
+        run: npm run test:ci
+      
+      - name: Debug coverage files
+        run: |
+          echo "=== Coverage directory content ==="
+          ls -la coverage/ || echo "No coverage directory"
+          find . -name "lcov.info" -type f || echo "No lcov.info found"
       
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5.0.0
+        uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: front
         env:
