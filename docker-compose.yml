@@ -13,7 +13,7 @@ services:
     build: ./front
     container_name: bobapp-front
     ports:
-      - "4020:4020"
+      - "4020:80"  # Changement ici : mapper le port 4020 vers le port 80 du conteneur
     depends_on:
       - bobapp-back
     networks:
